@@ -23,14 +23,14 @@ class TestAteneoCounter(unittest.TestCase):
         # Asserting the expected output dictionary with the actual result
         self.assertEqual(result, {
             "Milano Politecnico": 44038,
-            "Milano Cattolica":38462,
+            "Milano Cattolica": 38462,
             "Milano Bocconi": 13428,
             "Milano": 60641,
             "Milano Bicocca": 32999,
             "Milano San Raffaele": 2602,
             "Milano IULM": 5742,
             "Rozzano (MI) Humanitas University": 724})
-        
+
 
 if __name__ == '__main__':
     # Running the test cases
