@@ -1,10 +1,10 @@
-import csv 
+import csv
 
 
 def Ateneo_Counter(file_path):
     """ Counts the total number of students enrolled in each university. """
 
-    risultato = {} # Dictionary to store the result
+    risultato = {}  # Dictionary to store the result
 
     # Open the CSV file
     with open(file_path, newline='', encoding='ISO-8859-1') as file_csv:
@@ -18,10 +18,10 @@ def Ateneo_Counter(file_path):
 
             # Check if the university name already exists in the result dictionary
             if ateneo_nome not in risultato.keys():
-                # If not, add it to the dictionary with the number of enrolled students  
+                # If not, add it to the dictionary with the number of enrolled students
                 risultato[ateneo_nome] = numero_iscritti
             else:
                 # If it exists, add the number of enrolled students to the existing total
                 risultato[ateneo_nome] += numero_iscritti
 
-    return risultato #Return the dictionary containg university names and total enrolled students 
+    return risultato  # Return the dictionary containg university names and total enrolled students
