@@ -30,10 +30,12 @@ birthdays_dictionary = {
 
 df = pd.read_csv('/app/app/employees.csv')
 
+
 @app.get('/csv_show')
 def read_and_return_csv():
     aux = df['Age'].values
-    return{"Age": str(aux.argmin())}
+    return {"Age": str(aux.argmin())}
+
 
 @app.get('/')
 def read_root():
@@ -86,13 +88,16 @@ def get_date():
     current_date = datetime.now().isoformat()
     return JSONResponse(content={"date": current_date})
 
+
 @app.get('/Public_Private')
-def get_Public_Private(): 
+def get_Public_Private():
     return (Public_Private(file_path))
+
 
 @app.get('/Ateneo_Comp/{nome1}/{nome2}')
 def get_Ateneo_Comp(nome1: str, nome2: str):
     return Ateneo_Comp(file_path, nome1, nome2)
+
 
 @app.get('/Ateneo_Counter')
 def get_Ateneo_Counter():
