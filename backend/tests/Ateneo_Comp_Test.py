@@ -5,6 +5,7 @@ from app.mymodules.Ateneo_Comp import Ateneo_Comp  # we imported the function At
 sys.path.append('/app')  # we added /app to the list of directories to allow Python to find modules located in the /app directory
 file_path = '/app/app/ds752_iscritti_anno_accademico_2017-18.csv'  # assign the path of the file selected to file_path
 
+
 class TestAteneoComp(unittest.TestCase):  # the test class will inherit a set of methods and assertions used to write test cases
 
     def test_invalid_input(self):  # define the test method within the TestAteneoComp class in order to test the behavior of Ateneo_Comp when invalid input is provided
@@ -25,5 +26,5 @@ class TestAteneoComp(unittest.TestCase):  # the test class will inherit a set of
                                     "Milano": {"M": 25373, "F": 35268}})
 
 
-if __name__ == '__main__':  #checks if the script is being run as the main program
+if __name__ == '__main__':  # checks if the script is being run as the main program
     unittest.main()  # collects all the test cases and runs them
