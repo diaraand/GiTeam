@@ -2,10 +2,10 @@
 
 {% block title %} Homepage of Frontend {% endblock %}
 
-# These lines extend from a base HTML template and set the title of the page 
+<!-- These lines extend from a base HTML template and set the title of the page -->
 
 {% block content %}
-#This line opens a block where the main content of the page will be placed 
+<!--This line opens a block where the main content of the page will be placed -->
 
 <!DOCTYPE html> 
 <html lang="en">
@@ -16,7 +16,7 @@
     <title>Homepage of Frontend</title>
     <script src="https://cdn.jsdelivr.net/nmp/chart.js"></script>
     
-#This section of the HTML document includes the necessary meta tags for character set and viewport settings, set the title of the page and import Chart.js library for creating charts 
+<!-- This section of the HTML document includes the necessary meta tags for character set and viewport settings, set the title of the page and import Chart.js library for creating charts -->
     
     <style>
         #chart-container {
@@ -28,109 +28,102 @@
             height: 1200;
             /* Adjust height as needed */
         }
-    <style>
-<head>
+    </style>
+</head>
 
 <body> 
 
-#This style block sets the styling for the chart container, ensuring it's centered and of a fixed size.
+<!--This style block sets the styling for the chart container, ensuring it's centered and of a fixed size. -->
 
     <div class="container mt-5 text-center">
         <h1>Public VS Private</h1>
         <div.id="chart-container">
             <canvas id="myChart"></canvas>
+        </div>
     </div>
-</div>
 
-#This div contains the title of the chart and a container for the chart canvas.
+<!--This div contains the title of the chart and a container for the chart canvas.  -->
 
     <script>
-        //Access the data from the backend 
-        var dataFromBackend = {{ risultato| safe }}
-#This script block accesses data from the backend and safely renders it.
+        // Access the data from the backend 
+        var dataFromBackend = JSON.parse('{{ risultato|safe }}');
 
-       //Define  public and private universities 
-       var publicUniversities = ['Milano Politecnico', 'Milano', 'Milano Biccoca'];
-       var privateUniversities = Object.keys(dataFromBackend).filter (function(university) {
-        return !publicUniversities.includes(university);
-       })
+        // Define  public and private universities 
+        var publicUniversities = ['Milano Politecnico', 'Milano', 'Milano Bicocca'];
+        var privateUniversities = Object.keys(dataFromBackend).filter (function(university) {
+    
+            return !publicUniversities.includes(university);
+        });
 
-#These lines define arrays of public and private universities based on the data received from the backend.
+        // Initialize data variables 
+        var publicData = { 
+            'M': 0, 
+            'F': 0
+        };
 
-   //Initialize data variables 
-   var publicData={ 
-       'M': 0, 
-       'F': 0
-   };
+        var privateData = {
+            'M': 0,
+            'F': 0
+        };
 
-   var privateData = {
-    'M': 0,
-    'F': 0
-   };
+        // Calculate male and female data for public universities 
+        publicUniversities.forEach(function (university) {
+            publicData['M'] += dataFromBackend[university]['M'];
+            publicData['F'] += dataFromBackend[university]['F'];
+        });
 
-   #These lines initialize variables to hold data for public and private universities.
+        // Calculate male and female data fot private universities 
+        privateUniversities.forEach(function (university) {
+            privateData['M'] += dataFromBackend[university]['M'];
+            publicData['F'] += dataFromBackend[university]['F'];
+        });
 
-   //Calculate male and female data for public universities 
-   publicUniversities.forEach(function (university ){
-    publicData['M'] += dataFromBackend [university] ['M'];
-    publicData['F'] += dataFromBackend [university] ['F'];
-   });
+        // Create a pie chart with adjusted size 
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, { 
+            type: 'pie',
+            data: { 
+                labels: ['Public Male', 'Public Female', 'Private Male', 'Private Female'],
+                datasets:  [{
+                    data: [
+                        publicData['M'],
+                        publicData['F'],
+                        privateData['M'],
+                        privateData['F']
+                    ], 
+                    backgroundColour: [ 
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(75, 192, 192, 0.5)',
+                        'rgba(255, 99, 132, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ], 
+                    borderWidht: 1
+                }]
+            }, 
+            options: {
+                responsive: true,
+                mantainAspectRatio: false,
+                aspectRatio: 0.5 //Set the aspect ratio to control the size 
+            }
+        });
+    </script>
+<!--This script block creates a pie chart using Chart.js library based on the calculated data and customizes its appearance.-->
 
-   //Calculate male and female data fot private universities 
-   privateUniversities.forEach(function(university){
-    privateData['M'] += dataFromBackend [university] ['M'];
-    publicData ['F'] += dataFromBackend [university] ['F'];
-   });
-
-   #These loops calculate the male and female data for both public and private universities.
-
-   //Create a pie chart with adjusted size 
-
-   var ctx = document.getElementById('myChart').getContext('2d');
-   var myChart = new Chart(ctx, { 
-    type: 'pie',
-    data: { 
-        labels: ['Public Male', 'Public Female', 'Private Male', 'Private Female'],
-        datasets:  [{
-            data: [
-            publicData['M'],
-            publicData['F'],
-            privateData['M'],
-            privateData['F']
-        ], 
-        backgroundColour: [ 
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(75, 192, 192, 0.5)',
-        'rgba(255, 99, 132, 0.5)',
-        ],
-        borderColor: [
-        'rgba(75, 192, 192, 1)',
-        'rgba(255, 99, 132, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(255, 99, 132, 1)',
-        ], 
-        borderWidht: 1
-        }]
-    }, 
-    options: {
-        responsive: true,
-        mantainAspectRatio: false,
-        aspectRatio: 0.5 //Set the aspect ratio to control the size 
-    }
-});
-</script>
-#This script block creates a pie chart using Chart.js library based on the calculated data and customizes its appearance.
-
-<div class= "text-center mt-3">
-    <a href='/' class= "btn btn-lg btn-primary"> Back</a>
-</div>
+    <div class= "text-center mt-3">
+        <a href='/' class= "btn btn-lg btn-primary"> Back</a>
+    </div>
 
 </body>
 
 </html>
 
-#This div contains a link to navigate back to the homepage. It closes the body and HTML tags.
+<!--This div contains a link to navigate back to the homepage. It closes the body and HTML tags.-->
 
 {%endblock%}
 
