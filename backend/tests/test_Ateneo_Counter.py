@@ -8,7 +8,7 @@ from app.mymodules.Ateneo_Counter import Ateneo_Counter
 sys.path.append('/app')
 
 # Path to the CSV file
-file_path = '/app/app/ds752_iscritti_anno_accademico_2017-2018.csv'
+file_path = '/app/app/ds752_iscritti_anno_accademico_2017-18.csv'
 
 
 class TestAteneoCounter(unittest.TestCase):
@@ -22,14 +22,14 @@ class TestAteneoCounter(unittest.TestCase):
 
         # Asserting the expected output dictionary with the actual result
         self.assertEqual(result, {
-            "Milano Politecnico": 44038,
-            "Milano Cattolica": 38462,
-            "Milano Bocconi": 13428,
-            "Milano": 60641,
-            "Milano Bicocca": 32999,
-            "Milano San Raffaele": 2602,
-            "Milano IULM": 5742,
-            "Rozzano (MI) Humanitas University": 724})
+                                    "Milano Politecnico": 44038,
+                                    "Milano Cattolica": 38462,
+                                    "Milano Bocconi": 13428,
+                                    "Milano": 60641,
+                                    "Milano Bicocca": 32999,
+                                    "Milano San Raffaele": 2602,
+                                    "Milano IULM": 5742,
+                                    "Rozzano (MI) Humanitas University": 724})
 
 
 if __name__ == '__main__':
