@@ -1,12 +1,31 @@
 {% extends 'base.html' %}
 
-{% block title %} Homepage of Frontend {% endblock %}
+{% block title %} Homepage of Frontend {% endblock %} 
 
 {% block content %}
-    <div class="container mt-5">
-        <h1>Hello, world!</h1>
-        <p>Date from Backend: {{ date_from_backend }}</p>
-    </div>
+<div class="container mt-5">
+    <h1 class="display-1 text-center">Universities of Milan</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>University</th>
+                <th>Students</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for school, population in risultato.items() %}
+            <tr>
+                <td>{{ school }}</td>
+                <td>{{ population }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
+    <div class="text-center mt-3">
+        <a href="/compare1/<param1>/<param2>" class="btn btn-lg btn-primary">Compare University</a>
+        <a href="/publicVSprivate" class="btn btn-lg btn-danger ml-2">public VS private</a>
+    </div>
+</div>
 {% endblock %}
 

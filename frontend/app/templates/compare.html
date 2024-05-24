@@ -1,0 +1,106 @@
+{% extends 'base.html'%}
+
+{% block title %} Comparison Page {% endblock %}
+
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div class="container mt-5">
+    <h1>Comparison Page</h1>
+
+    # Form for selecting universities
+    <form method="post" action="{{ url_for('Compare', param1='default_value_1', param2='default_value_2') }}">
+        <div class="row">
+            # University 1 selection
+            <div class="col-md-6">
+                <label for="param1" class="form-label">Select University 1:</label>
+                <select class="form-select" id="param1" name="param1">
+                    # Options for University 1
+                    <option value="Milano Politecnico">Milano Politecnico</option>
+                    <option value="Milano Cattolica">Milano Cattolica</option>
+                    <option value="Milano Bocconi">Milano Bocconi</option>
+                    <option value="Milano">"Milano"</option>
+                    <option value="Milano Bicocca">"Milano Bicocca"</option>
+                    <option value="Milano San Raffaele">"Milano San Raffaele"</option>
+                    <option value="Milano IULM">"Milano IULM"</option>
+                    <option value="Rozzano (MI) Humanitas University">Rozzano (MI) Humanitas University</option>
+                </select>
+            </div>
+            
+            # University 2 selection
+            <div class="col-md-6">
+                <label for="param2" class="form-label">Select University 2:</label>
+                <select class="form-select" id="param2" name="param2">
+                    # Options for University 2
+                    <option value="Milano Politecnico">Milano Politecnico</option>
+                    <option value="Milano Cattolica">Milano Cattolica</option>
+                    <option value="Milano Bocconi">Milano Bocconi</option>
+                    <option value="Milano">"Milano"</option>
+                    <option value="Milano Bicocca">"Milano Bicocca"</option>
+                    <option value="Milano San Raffaele">"Milano San Raffaele"</option>
+                    <option value="Milano IULM">"Milano IULM"</option>
+                    <option value="Rozzano (MI) Humanitas University">Rozzano (MI) Humanitas University</option>
+                </select>
+            </div>
+        </div>
+
+        # Submit button for comparison
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary">Compare</button>
+        </div>
+    </form>
+
+    # Render the chart if there is a 'risultato'
+    {% if risultato %}
+    <canvas id="myChart"></canvas>
+
+    <script>
+        # Access the data from the backend
+        var DataFromBackend = JSON.parse('{{ risultato|tojson|safe }}');
+
+        # Extrac labels (university names) and data for male (M) and female (F) students
+        var universities = Object.keys(dataFromBackend);
+        var maleData = universities.map(function (university) {
+            return dataFromBackend[university]['M'];
+        });
+        var femaleData = universities.map(function (university) {
+            return dataFromBackend[university]['F'];
+        });
+
+        # Create a bar chart
+        var ctx = document.getElementById('mychart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: universities,
+                datasets: [
+                    {
+                        label: 'Male Students',
+                        data: maleData,
+                        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Female Students',
+                        data: femaleData,
+                        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    x: { stacked: true},
+                    y: { stacked: true}
+                }
+            }
+        });
+    </script>
+    {% endif %}
+    # Button to go back
+    <div class="text-center mt-3">
+        <a href="/" class="btn btn-lg btn-primary">Back</a>
+    </div>
+</div>
+{% endblock %}
