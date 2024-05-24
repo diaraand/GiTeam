@@ -9,7 +9,7 @@ import requests  # Import the requests library to make HTTP requests
 
 app = Flask(__name__)
 
-
+@app.route('/')
 def index():
     backend_url = 'http://backend/Ateneo_Counter'
 
@@ -17,10 +17,12 @@ def index():
     response.raise_for_status()
 
     risultato = response.json()
+    
+    return render_template('index.html', risultato=risultato)
 
 
-@app.route('/publicVSPrivate')
-def publicVSPrivate():
+@app.route('/publicVSprivate')
+def publicVSprivate():
     backend_url = 'http://backend/Public_Private'
 
     response = requests.get(backend_url)
@@ -28,7 +30,7 @@ def publicVSPrivate():
 
     risultato = response.json()
 
-    return render_template('publicVSPrivate.html', risultato=risultato)
+    return render_template('publicVSprivate.html', risultato=risultato)
 
 
 @app.route('/compare/<param1>/<param2>', methods=['GET', 'POST'])
