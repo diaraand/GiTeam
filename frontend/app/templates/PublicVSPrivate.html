@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage of Frontend</title>
-    <script src="https://cdn.jsdelivr.net/nmp/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
 <!-- This section of the HTML document includes the necessary meta tags for character set and viewport settings, set the title of the page and import Chart.js library for creating charts -->
     
@@ -37,16 +37,17 @@
 
     <div class="container mt-5 text-center">
         <h1>Public VS Private</h1>
-        <div.id="chart-container">
+        <div id="chart-container">
             <canvas id="myChart"></canvas>
         </div>
     </div>
 
 <!--This div contains the title of the chart and a container for the chart canvas.  -->
 
+    {% if risultato %}
     <script>
         // Access the data from the backend 
-        var dataFromBackend = JSON.parse('{{ risultato|safe }}');
+        var dataFromBackend = JSON.parse('{{ risultato|tojson|safe }}');
 
         // Define  public and private universities 
         var publicUniversities = ['Milano Politecnico', 'Milano', 'Milano Bicocca'];
@@ -75,7 +76,7 @@
         // Calculate male and female data fot private universities 
         privateUniversities.forEach(function (university) {
             privateData['M'] += dataFromBackend[university]['M'];
-            publicData['F'] += dataFromBackend[university]['F'];
+            privateData['F'] += dataFromBackend[university]['F'];
         });
 
         // Create a pie chart with adjusted size 
@@ -91,7 +92,7 @@
                         privateData['M'],
                         privateData['F']
                     ], 
-                    backgroundColour: [ 
+                    backgroundColor: [ 
                         'rgba(75, 192, 192, 0.2)',
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(75, 192, 192, 0.5)',
@@ -103,7 +104,7 @@
                         'rgba(75, 192, 192, 1)',
                         'rgba(255, 99, 132, 1)'
                     ], 
-                    borderWidht: 1
+                    borderWidth: 1
                 }]
             }, 
             options: {
@@ -113,6 +114,7 @@
             }
         });
     </script>
+    {% endif %}
 <!--This script block creates a pie chart using Chart.js library based on the calculated data and customizes its appearance.-->
 
     <div class= "text-center mt-3">
