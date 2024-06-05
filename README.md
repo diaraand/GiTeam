@@ -39,3 +39,11 @@ This project aims to analyze university enrollment data to gain insights into ge
 ### **Universities of Milan** 
 
 The first page presents a detailed overview of the totoal number of enrolled students, specificallt fot each university located in Milan. The results are displayed in adn easy-to-read format, listing each university's name alongside its total enrollment count. This section provides comprehensive snapshot of student distribution across different universities in Milan. Below, the interface offers two interactive options for further analysis: "Compare University" and "public VS private"
+
+### **Compare University**
+
+In this section, you can use a dropdown menu to select different universities for comparison. Once you have chosen the universities, the system will generate a graph displying the differences in the number of male and female students between the selected univerisities. This visual representation helps in understanding the gender distribution and highlights any significant disparties in enrollment figures.
+
+### **publicVSprivate**
+
+Int this section, this option enables users to compare the number of male (M) and female (F) students between public and private universities. Selecting this option provides a graph comparison of gender distribution within the two categories of universities, offering a broader perspective on student demographics across different types of institutions
