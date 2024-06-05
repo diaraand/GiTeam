@@ -61,5 +61,14 @@ In particular, in order to display these options, we developed three functions:
            nome1 and nome2: Names of the two universities to be compared.
            
            - Returns: A dictionary with the comparison results, where each university name is a key, and the corresponding value is another dictionary with the counts of male and female stundents 
-           
+
+
+2. Ateneo_Counter 
+
+           - Description: This function counts the total number of enrolled students for each university (Ateneo) based on  the provided CSV file. It calculates the overall enrollment count for each university and returns dictionary with the results.
+
+           -Parameters:
+           file_path: Path to the CSV file containing enrollment data.
+
+           - Returns: A dictionary with the total enrollment count for each university, where each name is a key, and the corrresponding value is the total number of enrolled students. 
            
