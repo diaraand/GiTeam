@@ -46,4 +46,20 @@ In this section, you can use a dropdown menu to select different universities fo
 
 ### **publicVSprivate**
 
-Int this section, this option enables users to compare the number of male (M) and female (F) students between public and private universities. Selecting this option provides a graph comparison of gender distribution within the two categories of universities, offering a broader perspective on student demographics across different types of institutions
+Int this section, this option enables users to compare the number of male (M) and female (F) students between public and private universities. Selecting this option provides a graph comparison of gender distribution within the two categories of universities, offering a broader perspective on student demographics across different types of institutions 
+
+
+## 4. Backend functions 
+
+In particular, in order to display these options, we developed three functions:
+1. Ateneo_Comp
+
+           - Description: This function compares the number of male (M) and female (F) students enrolled in two specified universities (Ateneo) based on provided CSV file. It sums up the gender-wise enrollment for each university and returns a dictionary with the comparison results 
+
+           -Parameters:
+           file_path: Path to the CSV file containing enrollment data. 
+           nome1 and nome2: Names of the two universities to be compared.
+           
+           - Returns: A dictionary with the comparison results, where each university name is a key, and the corresponding value is another dictionary with the counts of male and female stundents 
+           
+           
