@@ -20,3 +20,13 @@
 - Riso Anna 891038
 
 
+## 2. Dataset
+
+- File Name: ds752_iscritti_anno_accademico_2017-18.csv
+- Format: CSV
+- Columns:
+     -  Year
+     -  University
+     -  Course (number)
+     -  Gender
+     -  Number of enrolled students per class 
