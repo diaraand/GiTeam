@@ -30,3 +30,12 @@
      -  Course (number)
      -  Gender
      -  Number of enrolled students per class 
+
+
+## 3. Description of the project 
+
+This project aims to analyze university enrollment data to gain insights into gender distribution and overall student enrollment across various universities. The analysis focuses on comparing enrollment figures between different universities and categorizing them based on their public or private status.
+
+### **Universities of Milan** 
+
+The first page presents a detailed overview of the totoal number of enrolled students, specificallt fot each university located in Milan. The results are displayed in adn easy-to-read format, listing each university's name alongside its total enrollment count. This section provides comprehensive snapshot of student distribution across different universities in Milan. Below, the interface offers two interactive options for further analysis: "Compare University" and "public VS private"
