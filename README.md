@@ -72,3 +72,14 @@ In particular, in order to display these options, we developed three functions:
 
            - Returns: A dictionary with the total enrollment count for each university, where each name is a key, and the corrresponding value is the total number of enrolled students. 
            
+
+
+3. Public_Private 
+           
+           - Description: This function compares the number of male (M) and female (F) students between public and private universities based on the provided CSV file. It categorizes universities into public and private and then sums up the gender-wisr enrollment fot each category. The results are returned in a dictionary.
+
+           - Parameters:
+           file_pathe: Path to the CSV file cointaining enrollment data 
+
+           - Returns: A dictionary with the comparison results between public and private universities, where each university category (public or private) is a key, and the corresponding value is another dictionary with the counts of male and female students. 
+           
