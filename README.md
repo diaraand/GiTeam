@@ -83,3 +83,10 @@ In particular, in order to display these options, we developed three functions:
 
            - Returns: A dictionary with the comparison results between public and private universities, where each university category (public or private) is a key, and the corresponding value is another dictionary with the counts of male and female students. 
            
+## 5. Frontend HTML templates
+
+The frontend represents the user interface. In particular:
+1. base.html: The base.html file serves as the foundational template for other HTML files. It includes essential meta tags, links to JavaScript libraries and sets up the basic structure for the web pages.
+2. compare.html: The compare.html file represents the comparison page of the application. Users can select two universities from a dropdown menu and click a "Compare" button to visualize a comparison. The page includes a form, a canvas for displaying a bar chart and a back button to return to the homepage.
+3. index.html: The inde.html file serves as the homepage of the appllication, displaying a table with information about the Universities and their respective student populations. 
+4. publicVSprivate.html: The publicVSprivate.htnl file dispalys a pie chart comparing the number of male and female students between public and private universities. It uses the Chart.js library to create the visualization. The page also includes a back button for navigation. 
