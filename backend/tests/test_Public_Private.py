@@ -2,7 +2,7 @@ import sys
 import unittest
 # adding the directory
 sys.path.append('/app')
-file_path = '/app/app/ds752_iscritti_anno_accademico_2017-18.csv'   # file path to the csv file
+file_path = 'backend/app/ds752_iscritti_anno_accademico_2017-18.csv'   # file path to the csv file
 # import the function to test
 from app.mymodules.Public_Private import Public_Private
 

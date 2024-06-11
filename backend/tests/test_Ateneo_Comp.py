@@ -3,7 +3,7 @@ import unittest  # we imported the testing framework
 from app.mymodules.Ateneo_Comp import Ateneo_Comp  # we imported the function Ateneo_Comp from Ateneo_Comp.py module located in the mymodules packed within app package
 
 sys.path.append('/app')  # we added /app to the list of directories to allow Python to find modules located in the /app directory
-file_path = '/app/app/ds752_iscritti_anno_accademico_2017-18.csv'  # assign the path of the file selected to file_path
+file_path = 'backend/app/ds752_iscritti_anno_accademico_2017-18.csv'  # assign the path of the file selected to file_path
 
 
 class TestAteneoComp(unittest.TestCase):  # the test class will inherit a set of methods and assertions used to write test cases
