@@ -5,7 +5,7 @@ import unittest
 from app.mymodules.Ateneo_Counter import Ateneo_Counter
 
 sys.path.append('/app')  # we added /app to the list of directories to allow Python to find modules located in the /app directory
-file_path = 'backend/app/ds752_iscritti_anno_accademico_2017-18.csv'  # assign the path of the file selected to file_path
+file_path = 'app/ds752_iscritti_anno_accademico_2017-18.csv'  # assign the path of the file selected to file_path
 
 
 class TestAteneoCounter(unittest.TestCase):

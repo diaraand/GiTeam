@@ -2,6 +2,7 @@ import csv
 
 
 def Public_Private(file_path):
+    """ Compares the number of male and female students between public and private universities """
 
     risultato = {}
 # Open the csv file
@@ -12,10 +13,10 @@ def Public_Private(file_path):
             ateneo_nome = riga['AteneoNOME']
             numero_iscritti = int(riga['Isc'])
             sesso = riga['Sesso']
-# if the university it's not present: add it to the dictionary
+# If the university it's not present: add it to the dictionary
             if ateneo_nome not in risultato:
                 risultato[ateneo_nome] = {'M': 0, 'F': 0}
-# update the count of enrolled students for the corresponding gender
+# Update the count of enrolled students for the corresponding gender
             risultato[ateneo_nome][sesso] += numero_iscritti
-# return the final result
+# Return the final result
     return risultato

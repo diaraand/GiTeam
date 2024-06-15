@@ -2,16 +2,18 @@ import sys
 import unittest
 # adding the directory
 sys.path.append('/app')
-file_path = 'backend/app/ds752_iscritti_anno_accademico_2017-18.csv'   # file path to the csv file
+file_path = 'app/ds752_iscritti_anno_accademico_2017-18.csv'   # file path to the csv file
 # import the function to test
 from app.mymodules.Public_Private import Public_Private
 
 
 # define a test class
 class TestPublicPrivate(unittest.TestCase):
+    """ Verifies the functionality of the Public_Private function by comparing its output against expected results """
 
     # define a test method
     def test(self):
+        """ Verifies that the Public_Private function correctly calculates the number of male (M) and female (F) students enrolled in each university """
         # call the function to test
         result = Public_Private(file_path)
         self.assertEqual(result, {

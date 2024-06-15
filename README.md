@@ -86,7 +86,60 @@ In particular, in order to display these options, we developed three functions:
 ## 5. Frontend HTML templates
 
 The frontend represents the user interface. In particular:
+
 1. base.html: The base.html file serves as the foundational template for other HTML files. It includes essential meta tags, links to JavaScript libraries and sets up the basic structure for the web pages.
+
 2. compare.html: The compare.html file represents the comparison page of the application. Users can select two universities from a dropdown menu and click a "Compare" button to visualize a comparison. The page includes a form, a canvas for displaying a bar chart and a back button to return to the homepage.
-3. index.html: The inde.html file serves as the homepage of the appllication, displaying a table with information about the Universities and their respective student populations. 
+
+3. index.html: The inde.html file serves as the homepage of the appllication, displaying a table with information about the Universities and their respective student populations.
+
 4. publicVSprivate.html: The publicVSprivate.htnl file dispalys a pie chart comparing the number of male and female students between public and private universities. It uses the Chart.js library to create the visualization. The page also includes a back button for navigation. 
+
+## 6. Usage 
+
+1. Clone the repository and navigate to the directory:
+
+    ```bash
+    git clone https://github.com/diaraand/GiTeam.git
+    ```
+
+2. Open the terminal from the menu and type the following command:
+
+    ```bash
+    docker compose build backend
+    ```
+
+    ```bash
+    docker compose build frontend
+    ```
+
+    ```bash
+    docker compose up backend
+    ```
+
+    ```bash
+    docker compose up frontend
+    ```
+3. Launch the Docker extension in VS Code and navigate to the Containers tab.\
+You should see two containers that are currently running (indicated by green arrows).\
+Right-click on each of them and select "Attach Visual Studio".\
+This will open two new VS Code windows: one for the backend and one for the frontend.
+
+4. Repeat this step for both the frontend and backend.
+
+5. Navigate to the Run and Debug section, and start the backend first, followed by the frontend.
+
+6. Open your web browser and navigate to http://localhost:8080 to access the frontend and http://localhost:8081 to access the backend.
+
+## 7. Testing
+
+We've created some tests to ensure our backend works correctly. To execute these tests, open the backend VS Code window, launch the terminal, and enter the following command:
+
+```bash
+    pytest --cov=app --cov-report=html tests/
+```
+
+The test we implemented are: 
+- test_Ateneo_Comp: This script sets up unit tests using Python's `unittest` framework to verify the correct functionality of the `Ateneo_Comp` function with various inputs, ensuring it handles invalid inputs properly and produces the expected output for valid inputs. It includes tests for invalid numerical input, `None` values, and valid string inputs, and runs these tests when the script is executed as the main program.
+- test_Public_Private: This script sets up a unit test for the `Public_Private` function, ensuring it processes the CSV file correctly and returns the expected enrollment data for various universities, categorized by gender. It runs the test when the script is executed as the main program, comparing the function's output to a predefined dictionary of expected results.
+- test_Ateneo_Counter: This script conducts unit testing for the `Ateneo_Counter` class, verifying its functionality by instantiating the class with a provided CSV file and asserting the expected enrollment counts for various universities against the actual results. It runs the test when executed as the main program, ensuring accurate counts of student enrollments are returned by the `Ateneo_Counter` class.

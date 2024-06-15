@@ -1,8 +1,9 @@
 import csv  # Import the cvs in order to be able to read and write the file
 
 
-def Ateneo_Comp(file_path, nome1, nome2):  # We defined the function which has 3 parameters: the first one takes the file path, the second the name of a university and the thirde the name of the other university that we want to be compared
-
+def Ateneo_Comp(file_path, nome1, nome2):  # We defined the function which has 3 parameters: the first one takes the file path, the second the name of a university and the third the name of the other university that we want to be compared
+    """ Compares the number of male and female students enrolled in two universities """
+    
     risultato = {}  # The dictionary called risultato will show the result of the comparison
 
     if not isinstance(nome1, str) or not isinstance(nome2, str):  # We first need to check if the parameters nome are string
