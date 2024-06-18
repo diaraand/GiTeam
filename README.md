@@ -46,7 +46,7 @@ In this section, you can use a dropdown menu to select different universities fo
 
 ### **publicVSprivate**
 
-Int this section, this option enables users to compare the number of male (M) and female (F) students between public and private universities. Selecting this option provides a graph comparison of gender distribution within the two categories of universities, offering a broader perspective on student demographics across different types of institutions 
+In this section, this option enables users to compare the number of male (M) and female (F) students between public and private universities. Selecting this option provides a graph comparison of gender distribution within the two categories of universities, offering a broader perspective on student demographics across different types of institutions 
 
 
 ## 4. Backend functions 
@@ -133,7 +133,7 @@ This will open two new VS Code windows: one for the backend and one for the fron
 
 ## 7. Testing
 
-We've created some tests to ensure our backend works correctly. To execute these tests, open the backend VS Code window, launch the terminal, and enter the following command:
+We've created some tests to ensure our backend works correctly. To execute these tests, open the backend VS Code window, launch the terminal, and enter the following command, after entering in the **BACKEND DIRECTORY** (cd backend):
 
 ```bash
     pytest --cov=app --cov-report=html tests/
