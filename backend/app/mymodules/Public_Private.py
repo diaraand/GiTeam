@@ -2,7 +2,15 @@ import csv
 
 
 def Public_Private(file_path):
-    """ Compares the number of male and female students between public and private universities """
+    """
+    Compares the number of male and female students between public and private universities
+
+    Parameters:
+        file_path (str): Path to the CSV file containing enrollment data.
+
+    Returns:
+        dict: A dictionary with university names as keys and a nested dictionary wirh the count of male (M) and female (F) students as values.
+    """
 
     risultato = {}
 # Open the csv file

@@ -2,7 +2,15 @@ import csv
 
 
 def Ateneo_Counter(file_path):
-    """ Counts the total number of students enrolled in each university. """
+    """
+    Counts the total number of students enrolled in each university.
+
+    Parameters:
+        file_path (str): Path to the CSV file containing enrollment data.
+
+    Returns:
+        dict: A dictionary with university names as keys and the total number of enrolled students as values.
+    """
 
     risultato = {}  # Dictionary to store the result
 

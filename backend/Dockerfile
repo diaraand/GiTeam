@@ -7,6 +7,7 @@ WORKDIR /app
 # Copy only the necessary files to the container
 COPY ./app /app
 COPY requirements.txt /app
+RUN echo 'export PYTHONPATH='$PYTHONPATH:/app/app"' > /root/.bashrc
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
@@ -15,6 +16,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 80
 
 # Command to run the application
-#CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80", "--reload"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80", "--reload"]
+
 # Command to keep the container running
-CMD ["tail", "-f", "/dev/null"]
+# CMD ["tail", "-f", "/dev/null"]

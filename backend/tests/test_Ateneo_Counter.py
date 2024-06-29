@@ -1,3 +1,10 @@
+"""
+Test module for the Ateneo_Counter function.
+
+Execute this test by running on the terminal (from the backend/) the command:
+pytest --cov=app --cov-report=htm tests/
+"""
+
 import sys
 import unittest
 
@@ -9,10 +16,14 @@ file_path = 'app/ds752_iscritti_anno_accademico_2017-18.csv'  # assign the path 
 
 
 class TestAteneoCounter(unittest.TestCase):
-    """ A test case class for testing the Ateneo_Counter class """
+    """
+    A test case class for testing the Ateneo_Counter function.
+    """
 
     def test(self):
-        """ Test method to verify the functionality of the Ateneo_Counter class """
+        """
+        Verifies that the Ateneo_Counter function correctly computes the total number of students enrolled in each university.
+        """
 
         # Creating an instance of Ateneo_Counter with the provided file_path
         result = Ateneo_Counter(file_path)
